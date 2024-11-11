@@ -1,3 +1,7 @@
+
+*Deployment Link* :- https://reg-x-assignment.netlify.app
+
+
 Updated Steps Performed by the User:
 1. Signup:
 Open Signup Page:
