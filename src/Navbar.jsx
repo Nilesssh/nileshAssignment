@@ -1,16 +1,16 @@
 import { NavLink } from "react-router-dom";
-import Logout from "./Logout.jsx"
-import SignInButton from './SignInButton.jsx';
+import Logout from "./Logout.jsx";
+import React from "react";
+import SignInButton from "./SignInButton.jsx";
 
 export default function Navbar(props) {
   const onClickLoginBtn = props.onClickLoginBtn;
- 
 
   const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',   
-    gap: '10px'
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
   };
 
   return (
@@ -36,7 +36,11 @@ export default function Navbar(props) {
           </NavLink>
         </li>
         <li>
-         {sessionStorage.getItem("loggedIn") ? <Logout /> : <SignInButton onClickLoginBtn={onClickLoginBtn}/>}
+          {sessionStorage.getItem("loggedIn") ? (
+            <Logout />
+          ) : (
+            <SignInButton onClickLoginBtn={onClickLoginBtn} />
+          )}
         </li>
       </ul>
     </nav>
