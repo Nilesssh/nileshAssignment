@@ -1,10 +1,17 @@
 import { NavLink } from "react-router-dom";
 import Logout from "./Logout.jsx";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SignInButton from "./SignInButton.jsx";
 
 export default function Navbar(props) {
   const onClickLoginBtn = props.onClickLoginBtn;
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const loggedInStatus = sessionStorage.getItem("loggedIn");
+    setIsLoggedIn(loggedInStatus === "true");
+  }, []);
 
   const containerStyle = {
     display: "flex",
@@ -36,7 +43,7 @@ export default function Navbar(props) {
           </NavLink>
         </li>
         <li>
-          {sessionStorage.getItem("loggedIn") ? (
+          {!isLoggedIn ? (
             <Logout />
           ) : (
             <SignInButton onClickLoginBtn={onClickLoginBtn} />
